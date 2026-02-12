@@ -39,29 +39,27 @@ Clotho integrates deeply with Windows APIs to capture system activity:
 - UI Automation for window tracking and process monitoring
 - Raw Input API for measuring input velocity (keys/minute, scroll deltas)
 - Windows Graphics Capture for smart screenshots during high-intent activities
-- WebSocket IPC for communication with Atropos
 
 **Key Features:**
 - Privacy-first design: captures velocity metrics, never raw keystrokes
 - Hierarchical storage: organized by Year/Quarter/Week/Day
 - Smart screenshot capture triggered by IDE usage or high-velocity activity
-- Local SQLite database with WAL mode for data integrity
 
 ### 2. Lachesis (The Measurer)
-**Technology:** Go  
+**Technology:** Go + Groq 
 **Role:** AI narrative generation and processing  
 **Location:** Batch processing service
 
 Lachesis transforms raw telemetry into meaningful narratives:
 - Processes daily activity data from Clotho
-- Integrates with PuterJS API (Mistral OCR + Claude 3.5 Sonnet)
+- Integrates with Groq API ( Llama 3.3 versatile and 4 Maverick )
 - Generates narrative summaries and intent classifications
 - Outputs both human-readable markdown and structured JSON
 
 **Processing Pipeline:**
 1. Reads telemetry data from hierarchical storage
-2. Extracts text from screenshots using Mistral OCR
-3. Sends metadata + OCR + historical context to Claude
+2. Extracts text from screenshots using Llama Vision
+3. Sends metadata + OCR + historical context to Llama 3.3 Versatile
 4. Receives narrative summary + intent classification
 5. Saves results as daily chronicles
 
@@ -82,6 +80,7 @@ Atropos provides the visual interface for interacting with your narrative:
 - Activity pulse indicator (productive/scattered/idle)
 - Thread notifications for extended focus sessions
 - One-click thread resumption (restore window states)
+- Chat interface to ask about your past and work on your future
 - Demo mode for testing without real data
 
 ### 4. Aphrodite (The Landing)
@@ -92,8 +91,7 @@ Atropos provides the visual interface for interacting with your narrative:
 Aphrodite presents Moirai to the world with a premium, immersive experience:
 - Scroll-driven narrative timeline
 - WebGL-powered visual effects
-- Responsive design with smooth animations
-- SEO-optimized content structure
+- Responsive design with smooth animations (Kind of...Still working on this!)
 
 ## Project Structure
 
@@ -145,7 +143,7 @@ moirai/
 
 ### Prerequisites
 
-- **Windows 10/11** (64-bit)
+- **Windows 10/11** (64-bit) (Windows Only)
 - **Go 1.25.7+** (for building Clotho and Lachesis)
 - **Node.js 18+** (for building Atropos and Aphrodite)
 - **Git**
@@ -189,7 +187,7 @@ cd ..
 
 The built application will be in `atropos/dist/`.
 
-#### 5. Build Aphrodite (Landing Page - Optional)
+#### 5. Build Aphrodite (Landing Page - Optional, defiinitely optional!)
 
 ```bash
 cd aphrodite
@@ -223,7 +221,7 @@ Clotho will start capturing system activity and storing telemetry data in:
 
 Lachesis will:
 1. Read today's telemetry data
-2. Process screenshots with OCR
+2. Process screenshots with Llama Vision
 3. Generate narrative summaries
 4. Save results to the chronicle directory
 
@@ -267,12 +265,10 @@ Create or edit `%LOCALAPPDATA%\Moirai\config.json`:
 
 ### Lachesis Configuration
 
-Set environment variables for API access:
+Set environment variables for Groq API access(Temporary method):
 
-```bash
-set PUTER_API_KEY=your_puter_api_key
-set MISTRAL_API_KEY=your_mistral_api_key
-set CLAUDE_API_KEY=your_claude_api_key
+```powershell
+$env:GROQ_API_KEY="your_actual_groq_key_here
 ```
 
 ### Atropos Configuration
@@ -288,12 +284,12 @@ Moirai is designed with privacy as a core principle:
 ### Local-First Promise
 - Raw keystrokes are NEVER stored (only velocity metrics)
 - Screenshots are processed locally before any cloud transmission
-- The Redaction Layer strips emails and PII using regex and window detection
+- The Redaction Layer strips File path using regex and window detection
 - All raw data stays on your machine
 
 ### Cloud Integration
 Groq only receives:
-- Redacted screenshots (optional, user-toggleable)
+- Redacted screenshots (optional, user-toggleable) (Working on this!)
 - Process names (e.g., "code.exe")
 - Window title hashes (not raw titles for sensitive apps)
 - Velocity vectors
@@ -304,7 +300,7 @@ Groq only receives:
 ## Data Lifecycle
 
 ### 1. The Gasp (Real-Time)
-Every 30 seconds, Clotho writes to local SQLite:
+Every 30 seconds, Clotho writes to local:
 ```
 timestamp | process | window_hash | kps | scroll_vel | thread_id
 ```
@@ -317,8 +313,8 @@ Triggered when `process == code.exe` OR velocity > threshold:
 
 ### 3. The Weaving (Batch Processing)
 Every 5-10 minutes (configurable):
-1. Mistral OCR extracts text from screenshots
-2. Claude receives: metadata + OCR + historical context
+1. Llama Vision extracts text from screenshots
+2. Llama 4 Maverick receives: metadata + OCR + historical context
 3. Returns: narrative summary + intent classification
 
 ### 4. The Chronicle (Storage)
@@ -419,7 +415,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Inspired by the Greek mythology of the Three Fates (Moirai)
 - Built with modern web and systems programming technologies
-- Powered by PuterJS, Mistral OCR, and Claude AI
+- Powered by Groq and Llama
 
 ## Support
 
