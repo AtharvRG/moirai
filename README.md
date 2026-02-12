@@ -1,7 +1,18 @@
+<div align="center">
+
+<!-- LOGO AREA -->
+<img src="./aphrodite/src/app/favicon.ico" alt="Fractal Logo" width="180" />
+
+
 # Moirai: The Narrative OS for Windows
 
 Weaving the thread of daily action into the narrative of life intent.
 
+<br/>
+
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+
+</div>
 ## Overview
 
 Moirai is a local-first, cloud-augmented resident agent for Windows that transforms passive digital behavior into an actionable life narrative. Unlike traditional productivity tools that demand manual input, Moirai operates as a background chronicler—observing, compressing, and narrating your digital life through the metaphor of the Three Fates from Greek mythology.
@@ -280,23 +291,15 @@ Moirai is designed with privacy as a core principle:
 - All raw data stays on your machine
 
 ### Cloud Integration
-PuterJS only receives:
+Groq only receives:
 - Redacted screenshots (optional, user-toggleable)
 - Process names (e.g., "code.exe")
 - Window title hashes (not raw titles for sensitive apps)
 - Velocity vectors
 
-### Kill Switch
-Press `Ctrl+Shift+End` to:
-- Terminate Clotho immediately
-- Wipe all unprocessed telemetry data
-- Stop all capture activities
-
 ### Permission Model
 - Windows UI Access (for cross-window title reading)
-- Graphics Capture consent (one-time system dialog)
-- Mirror Mode: Live UI showing exactly what Clotho observes
-
+- 
 ## Data Lifecycle
 
 ### 1. The Gasp (Real-Time)
@@ -372,16 +375,16 @@ npm run build
 
 ### Current Scope (MVP)
 - Windows process monitoring and velocity tracking
-- Smart screenshot capture (IDE/dev tools focus)
-- PuterJS integration for OCR and narrative generation
+- Smart screenshot capture
+- Groq integration for OCR and narrative generation
 - Hierarchical Chronicle storage
 - Environmental reshaping (resume/cut threads)
-- Tauri-based system tray interface
+- Electron-based system tray interface
 
 ### Future Enhancements (V2)
 - Cross-device sync
 - Local LLM inference (offline mode)
-- Mobile integration
+- Mobile App integration
 - Collaborative/shared narratives
 - Advanced analytics and insights
 - Custom intent classification models
