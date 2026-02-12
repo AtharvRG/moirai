@@ -54,7 +54,7 @@ export default function Hero() {
       {/* 4. Action Buttons (Central area) */}
       <div className="absolute top-[25%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col md:flex-row gap-6 items-center pointer-events-auto">
         <motion.a
-          href="#"
+          href="https://github.com/AtharvRG/moirai/releases/latest"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
