@@ -13,6 +13,7 @@ Weaving the thread of daily action into the narrative of life intent.
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
 </div>
+
 ## Overview
 
 Moirai is a local-first, cloud-augmented resident agent for Windows that transforms passive digital behavior into an actionable life narrative. Unlike traditional productivity tools that demand manual input, Moirai operates as a background chronicler—observing, compressing, and narrating your digital life through the metaphor of the Three Fates from Greek mythology.
