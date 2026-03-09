@@ -7,7 +7,7 @@ export function useIsMobile() {
   useEffect(() => {
     // Check on mount
     const checkMobile = () => {
-      const mobile = window.innerWidth < 768 || navigator.maxTouchPoints > 0;
+      const mobile = window.innerWidth < 768 || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
       setIsMobile(mobile);
       setIsLoaded(true);
     };

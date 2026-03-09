@@ -137,6 +137,17 @@
         "ui",
         "feature"
       ]
+    },
+    {
+      "title": "Pluck Apples",
+      "description": "Actually pluck apples!",
+      "startDate": "",
+      "dueDate": "2026-02-13",
+      "priority": "Low",
+      "groupId": "general",
+      "subtasks": [],
+      "completed": false,
+      "id": "1d4f1352-3a15-4b74-a9c7-4fe3535e13b1"
     }
   ]
 }

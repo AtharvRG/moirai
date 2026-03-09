@@ -21,11 +21,7 @@ export default function Hero() {
     <section ref={targetRef} className="relative h-screen w-full flex flex-col justify-between p-4 md:p-12 overflow-hidden border-b border-swiss-black" style={{ willChange: isMobile ? 'auto' : 'transform' }}>
 
       {/* 1. Background Grid Lines (Behind everything) */}
-      <div className="absolute inset-0 grid grid-cols-4 pointer-events-none opacity-10 z-0">
-        <div className="border-r border-swiss-black h-full"></div>
-        <div className="border-r border-swiss-black h-full"></div>
-        <div className="border-r border-swiss-black h-full"></div>
-      </div>
+
 
       {/* 2. WebGL Threads Animation - Disabled on mobile */}
       {!isMobile && (
@@ -98,7 +94,7 @@ export default function Hero() {
         {/* Subtitle Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mt-8">
           <div className="md:col-span-5 md:col-start-8">
-            <p className="font-harmond text-xl md:text-3xl leading-tight text-justify-interword bg-swiss-cream p-2 rounded-sm">
+            <p className="font-harmond text-xl md:text-3xl leading-tight text-justify-interword p-2 rounded-sm">
               Weaving the thread of daily action into the narrative of life intent. The first Operating System for your soul.
             </p>
           </div>

@@ -12,7 +12,7 @@ interface ThreadsProps {
 
 const isMobile = () => {
   if (typeof window === 'undefined') return false;
-  return window.innerWidth < 768 || navigator.maxTouchPoints > 0;
+  return window.innerWidth < 768 || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
 };
 
 const vertexShader = `
